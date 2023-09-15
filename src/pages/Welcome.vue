@@ -20,6 +20,15 @@ const handleFilterByCategory = async (category) => {
     }
 };
 
+const handleFilterClearing = async () => {
+    try {
+        products.value = await getProducts();
+        activeCategory.value = null;
+    } catch (error) {
+        return;
+    }
+};
+
 onMounted(async () => {
     try {
         products.value = await getProducts();
@@ -44,6 +53,9 @@ onMounted(async () => {
                     {{ category }}
                 </button>
             </template>
+            <button @click="handleFilterClearing" class="hover:underline">
+                Clear filters
+            </button>
         </div>
         <section class="grid grid-cols-3 my-16 gap-y-12 gap-x-8">
             <ProductCard

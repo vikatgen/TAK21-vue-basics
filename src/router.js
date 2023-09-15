@@ -6,6 +6,11 @@ const routes = [
         name: "home",
         component: () => import("./pages/Welcome.vue"),
     },
+    {
+        path: "/product/:id",
+        name: "product.index",
+        component: () => import("./pages/singleProduct.vue"),
+    },
 ];
 
 export const router = createRouter({

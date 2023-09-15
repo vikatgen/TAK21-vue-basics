@@ -1,11 +1,13 @@
 <script setup>
+import { RouterLink } from "vue-router";
+
 defineProps({
     product: Object,
 });
 </script>
 
 <template>
-    <article>
+    <RouterLink :to="{ name: 'product.index', params: { id: product.id } }">
         <img
             :src="product.image"
             :alt="product.description"
@@ -17,5 +19,5 @@ defineProps({
                 {{ product.description }}
             </p>
         </div>
-    </article>
+    </RouterLink>
 </template>
